@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://n8ojyfa15jch"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_e033e"]
+[ext_resource type="Texture2D" uid="uid://13e4dkq1px65" path="res://player.png" id="2_57r1f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7h5r6"]
+size = Vector2(32, 32)
+
+[node name="wróg" type="CharacterBody2D"]
+script = ExtResource("1_e033e")
+
+[node name="Player" type="Sprite2D" parent="."]
+texture = ExtResource("2_57r1f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7h5r6")
+debug_color = Color(0.628587, 0, 0.110535, 0.42)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
