@@ -87,9 +87,6 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 	$Death.start()
 
 
-func _on_nuta_finished() -> void:
-	$Nuta.play()
-	
 
 func _on_sad_area_entered(area: Area2D) -> void:
 	if area == $Hurtbox:
@@ -111,3 +108,7 @@ func _on_death_timeout() -> void:
 	$"../CanvasLayer". visible = false
 	root.load_level()
 	
+
+
+func _on_nuta_finished() -> void:
+	$Nuta.play()

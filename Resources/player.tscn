@@ -242,8 +242,7 @@ libraries = {
 "": SubResource("AnimationLibrary_2qj2h")
 }
 
-[node name="Nuta" type="AudioStreamPlayer2D" parent="."]
-process_mode = 3
+[node name="Nuta" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_6yhju")
 autoplay = true
 
