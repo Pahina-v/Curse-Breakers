@@ -263,9 +263,13 @@ process_mode = 3
 wait_time = 2.0
 one_shot = true
 
+[node name="dash" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="finished" from="Nuta" to="." method="_on_nuta_finished"]
 [connection signal="area_entered" from="Sad" to="." method="_on_sad_area_entered"]
 [connection signal="area_exited" from="Sad" to="." method="_on_sad_area_exited"]
 [connection signal="timeout" from="Death" to="." method="_on_death_timeout"]
+[connection signal="timeout" from="dash" to="." method="_on_dash_timeout"]

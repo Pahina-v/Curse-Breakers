@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var can_dash = true
 var last_dir = -1.0
 var anim = ''
 var SPEED = 300.0
@@ -70,9 +71,12 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	if Input.is_action_just_pressed("dash"):
-		$Skok.play()
-		SPEED = 1000.0
-		$Timer.start()
+		if can_dash:
+			$Skok.play()
+			SPEED = 1000.0
+			$Timer.start()
+			$dash.start()
+			can_dash = false
 	move_and_slide()
 	
 
@@ -112,3 +116,7 @@ func _on_death_timeout() -> void:
 
 func _on_nuta_finished() -> void:
 	$Nuta.play()
+
+
+func _on_dash_timeout() -> void:
+	can_dash = true
