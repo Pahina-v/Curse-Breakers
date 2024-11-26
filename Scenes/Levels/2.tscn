@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://b1da0c68u7ewc"]
+[gd_scene load_steps=10 format=4 uid="uid://b1da0c68u7ewc"]
 
 [ext_resource type="Texture2D" uid="uid://ccmsi3v3igjca" path="res://Art/tło.png" id="1_o7vib"]
 [ext_resource type="PackedScene" uid="uid://1jbsymlboehv" path="res://Resources/end.tscn" id="2_a57af"]
@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://dk4vqiyvb85mr" path="res://Resources/ka1.ttf" id="6_6jipq"]
 [ext_resource type="PackedScene" uid="uid://bdcqkso3pxkch" path="res://Resources/platform.tscn" id="7_sp1sp"]
 [ext_resource type="PackedScene" uid="uid://dr4xmdjfe5y7b" path="res://Resources/button.tscn" id="8_jky28"]
+[ext_resource type="Material" uid="uid://cny4is2fkvm0a" path="res://Resources/shader.tres" id="9_xeibj"]
 
 [node name="Level" type="Node2D"]
 
@@ -87,3 +88,9 @@ platform = NodePath("../Platform2")
 [node name="Button3" parent="." node_paths=PackedStringArray("platform") instance=ExtResource("8_jky28")]
 position = Vector2(32, 256)
 platform = NodePath("../Platform3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource("9_xeibj")
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(1, 1, 1, 0.0980392)
