@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=9 format=4 uid="uid://cgedudgaw5iih"]
-=======
 [gd_scene load_steps=10 format=4 uid="uid://b1da0c68u7ewc"]
->>>>>>> Stashed changes
 
 [ext_resource type="PackedScene" uid="uid://n8ojyfa15jch" path="res://Resources/wróg.tscn" id="1_3nnej"]
 [ext_resource type="Texture2D" uid="uid://ccmsi3v3igjca" path="res://Art/tło.png" id="1_fagn8"]
@@ -12,10 +8,7 @@
 [ext_resource type="FontFile" uid="uid://dk4vqiyvb85mr" path="res://Resources/ka1.ttf" id="6_rcw6x"]
 [ext_resource type="PackedScene" uid="uid://bdcqkso3pxkch" path="res://Resources/platform.tscn" id="6_vjd63"]
 [ext_resource type="PackedScene" uid="uid://dr4xmdjfe5y7b" path="res://Resources/button.tscn" id="7_sb2eb"]
-<<<<<<< Updated upstream
-=======
-[ext_resource type="Material" path="res://Resources/shader.tres" id="9_u6j5x"]
->>>>>>> Stashed changes
+[ext_resource type="Material" uid="uid://c8h44aahwant" path="res://Resources/shader.tres" id="9_u6j5x"]
 
 [node name="Level" type="Node2D"]
 
@@ -81,8 +74,6 @@ position = Vector2(448, 288)
 move = 3
 length = 3
 direction = 4
-<<<<<<< Updated upstream
-=======
 
 [node name="Platform3" parent="." instance=ExtResource("6_vjd63")]
 position = Vector2(288, 288)
@@ -103,4 +94,3 @@ material = ExtResource("9_u6j5x")
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(1, 1, 1, 0.0980392)
->>>>>>> Stashed changes

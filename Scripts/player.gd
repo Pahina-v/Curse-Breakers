@@ -72,7 +72,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	if Input.is_action_just_pressed("dash"):
-		if can_dash:
+		if can_dash && direction !=0:
 			$Skok.play()
 			SPEED = 1000.0
 			$Timer.start()

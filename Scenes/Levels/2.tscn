@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=9 format=4 uid="uid://b1da0c68u7ewc"]
-=======
 [gd_scene load_steps=10 format=4 uid="uid://dvvgapamxotjw"]
->>>>>>> Stashed changes
 
 [ext_resource type="Texture2D" uid="uid://ccmsi3v3igjca" path="res://Art/tło.png" id="1_o7vib"]
 [ext_resource type="PackedScene" uid="uid://1jbsymlboehv" path="res://Resources/end.tscn" id="2_a57af"]
@@ -12,10 +8,7 @@
 [ext_resource type="FontFile" uid="uid://dk4vqiyvb85mr" path="res://Resources/ka1.ttf" id="6_6jipq"]
 [ext_resource type="PackedScene" uid="uid://bdcqkso3pxkch" path="res://Resources/platform.tscn" id="7_sp1sp"]
 [ext_resource type="PackedScene" uid="uid://dr4xmdjfe5y7b" path="res://Resources/button.tscn" id="8_jky28"]
-<<<<<<< Updated upstream
-=======
-[ext_resource type="Material" path="res://Resources/shader.tres" id="9_xeibj"]
->>>>>>> Stashed changes
+[ext_resource type="Material" uid="uid://c8h44aahwant" path="res://Resources/shader.tres" id="9_xeibj"]
 
 [node name="Level" type="Node2D"]
 
@@ -97,8 +90,6 @@ direction = 4
 [node name="Button3" parent="." node_paths=PackedStringArray("platform") instance=ExtResource("8_jky28")]
 position = Vector2(977, 127)
 platform = NodePath("../Platform3")
-<<<<<<< Updated upstream
-=======
 
 [node name="Platform4" parent="." instance=ExtResource("7_sp1sp")]
 position = Vector2(256, 256)
@@ -159,4 +150,3 @@ material = ExtResource("9_xeibj")
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(1, 1, 1, 0.0980392)
->>>>>>> Stashed changes

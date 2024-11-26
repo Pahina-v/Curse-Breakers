@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=21 format=3 uid="uid://njlsu23nssbr"]
-=======
 [gd_scene load_steps=24 format=3 uid="uid://njlsu23nssbr"]
->>>>>>> Stashed changes
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_ler1d"]
 [ext_resource type="PackedScene" uid="uid://ce51h53enyje2" path="res://Resources/Explosion.tscn" id="2_3q7r5"]
@@ -10,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://bt602c1sijrpu" path="res://muzyka/lvl.wav" id="3_1xatk"]
 [ext_resource type="AudioStream" uid="uid://dlk7l0b4ee0ii" path="res://muzyka/hurt.wav" id="4_ef6ow"]
 [ext_resource type="AudioStream" uid="uid://dl5uw6iblybeu" path="res://muzyka/skok.wav" id="5_lwrp8"]
+[ext_resource type="Texture2D" uid="uid://dgykpa57unql0" path="res://Art/9578af169d1ecc60aa5774fac7ef193e.jpg" id="6_wr0n1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hq30n"]
 
@@ -278,8 +275,6 @@ one_shot = true
 [node name="dash" type="Timer" parent="."]
 wait_time = 2.0
 
-<<<<<<< Updated upstream
-=======
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0.447059, 0.643137, 0.533333, 1)
 energy = 2.0
@@ -292,7 +287,6 @@ texture = ExtResource("6_wr0n1")
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_geiwg")
 
->>>>>>> Stashed changes
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="finished" from="Nuta" to="." method="_on_nuta_finished"]
