@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://njlsu23nssbr" path="res://Resources/player.tscn" id="5_t4nmu"]
 [ext_resource type="PackedScene" uid="uid://bdcqkso3pxkch" path="res://Resources/platform.tscn" id="7_a4eio"]
 [ext_resource type="PackedScene" uid="uid://dr4xmdjfe5y7b" path="res://Resources/button.tscn" id="8_e4d6y"]
-[ext_resource type="Material" path="res://Resources/shader.tres" id="9_opuxa"]
+[ext_resource type="Material" uid="uid://cny4is2fkvm0a" path="res://Resources/shader.tres" id="9_opuxa"]
 
 [node name="Level" type="Node2D"]
 

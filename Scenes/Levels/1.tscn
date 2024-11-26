@@ -8,7 +8,7 @@
 [ext_resource type="FontFile" uid="uid://dk4vqiyvb85mr" path="res://Resources/ka1.ttf" id="6_rcw6x"]
 [ext_resource type="PackedScene" uid="uid://bdcqkso3pxkch" path="res://Resources/platform.tscn" id="6_vjd63"]
 [ext_resource type="PackedScene" uid="uid://dr4xmdjfe5y7b" path="res://Resources/button.tscn" id="7_sb2eb"]
-[ext_resource type="Material" uid="uid://c8h44aahwant" path="res://Resources/shader.tres" id="9_u6j5x"]
+[ext_resource type="Material" uid="uid://cny4is2fkvm0a" path="res://Resources/shader.tres" id="9_u6j5x"]
 
 [node name="Level" type="Node2D"]
 
