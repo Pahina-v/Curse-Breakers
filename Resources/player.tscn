@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://njlsu23nssbr"]
+[gd_scene load_steps=24 format=3 uid="uid://njlsu23nssbr"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_ler1d"]
+[ext_resource type="PackedScene" uid="uid://ce51h53enyje2" path="res://Resources/Explosion.tscn" id="2_3q7r5"]
 [ext_resource type="Texture2D" uid="uid://tlvls6jenh5f" path="res://Art/gracz.png" id="2_ddrs8"]
 [ext_resource type="AudioStream" uid="uid://bt602c1sijrpu" path="res://muzyka/lvl.wav" id="3_1xatk"]
 [ext_resource type="AudioStream" uid="uid://dlk7l0b4ee0ii" path="res://muzyka/hurt.wav" id="4_ef6ow"]
@@ -212,9 +213,16 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_tl8j7"]
 radius = 64.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_geiwg"]
+size = Vector2(16, 15)
+
 [node name="player" type="CharacterBody2D"]
 platform_on_leave = 1
 script = ExtResource("1_ler1d")
+
+[node name="Explosion" parent="." instance=ExtResource("2_3q7r5")]
+process_mode = 3
+z_index = 7
 
 [node name="Hurtbox" type="Area2D" parent="."]
 unique_name_in_owner = true
@@ -273,6 +281,12 @@ energy = 2.0
 shadow_enabled = true
 texture = ExtResource("6_wr0n1")
 
+[node name="CrushBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CrushBox"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_geiwg")
+
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="finished" from="Nuta" to="." method="_on_nuta_finished"]
@@ -280,3 +294,5 @@ texture = ExtResource("6_wr0n1")
 [connection signal="area_exited" from="Sad" to="." method="_on_sad_area_exited"]
 [connection signal="timeout" from="Death" to="." method="_on_death_timeout"]
 [connection signal="timeout" from="dash" to="." method="_on_dash_timeout"]
+[connection signal="area_entered" from="CrushBox" to="." method="_on_crush_box_area_entered"]
+[connection signal="body_entered" from="CrushBox" to="." method="_on_crush_box_body_entered"]

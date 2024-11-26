@@ -11,6 +11,7 @@ var is_sad = false
 func _physics_process(delta: float) -> void:
 	Global.past_positions.push_back(global_position)
 	Global.current_anim.push_back(anim)
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -109,7 +110,7 @@ func _on_sad_area_exited(area: Area2D) -> void:
 
 func _on_death_timeout() -> void:
 	get_tree().paused = false
-	$"../CanvasLayer". visible = false
+	$"../CanvasLayer".visible = false
 	root.load_level()
 	
 
@@ -120,3 +121,16 @@ func _on_nuta_finished() -> void:
 
 func _on_dash_timeout() -> void:
 	can_dash = true
+		
+
+
+func _on_crush_box_body_entered(body: Node2D) -> void:
+	if body.name == "CharacterBody2D":
+		return
+	$Player.hide()
+	$Explosion.emitting = true
+	$Death.wait_time = 1
+	get_tree().paused = true
+	#$"../CanvasLayer". visible = true
+	$Hurt.play()
+	$Death.start()
