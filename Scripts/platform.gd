@@ -4,7 +4,7 @@ extends Node2D
 	set(value):
 		move = value
 		
-@export_range(1, 10) var length:int = 1:
+@export_range(1, 25) var length:int = 1:
 	set(value):
 		length = value
 		set_length()
@@ -39,7 +39,7 @@ func set_length():
 func action():
 	$'AnimationPlayer'.speed_scale = 1
 	var directions = [".", "up", "right", "down", "left"]
-	print("%s_%s" % [directions[direction], move])
+	#print("%s_%s" % [directions[direction], move])
 	$AnimationPlayer.play("%s_%s" % [directions[direction], move])
 
 func reverse_action():
@@ -50,5 +50,5 @@ func reverse_action():
 		return
 	$'AnimationPlayer'.speed_scale = -1
 	
-	print("%s_%s" % [directions[direction], move])
+	#print("%s_%s" % [directions[direction], move])
 	$AnimationPlayer.play("%s_%s" % [directions[direction], move])
