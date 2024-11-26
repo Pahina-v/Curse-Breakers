@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cny4is2fkvm0a"]
+
+[ext_resource type="Shader" path="res://Resources/shader.gdshader" id="1_oiupj"]
+[ext_resource type="Texture2D" uid="uid://dqxoyo15s84ch" path="res://Resources/noise.tres" id="2_k2t0k"]
+
+[resource]
+shader = ExtResource("1_oiupj")
+shader_parameter/tone = Color(0.597176, 0.597176, 0.597176, 0.301961)
+shader_parameter/scroll = Vector2(0.05, 0)
+shader_parameter/noise = ExtResource("2_k2t0k")
