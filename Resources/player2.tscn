@@ -1,12 +1,12 @@
-[gd_scene load_steps=24 format=3 uid="uid://njlsu23nssbr"]
+[gd_scene load_steps=24 format=3 uid="uid://bvtxvnvs3k4uu"]
 
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_ler1d"]
-[ext_resource type="PackedScene" uid="uid://ce51h53enyje2" path="res://Resources/Explosion.tscn" id="2_3q7r5"]
-[ext_resource type="Texture2D" uid="uid://tlvls6jenh5f" path="res://Art/gracz.png" id="2_ddrs8"]
-[ext_resource type="AudioStream" uid="uid://bt602c1sijrpu" path="res://muzyka/lvl.wav" id="3_1xatk"]
-[ext_resource type="AudioStream" uid="uid://dlk7l0b4ee0ii" path="res://muzyka/hurt.wav" id="4_ef6ow"]
-[ext_resource type="AudioStream" uid="uid://dl5uw6iblybeu" path="res://muzyka/skok.wav" id="5_lwrp8"]
-[ext_resource type="Texture2D" uid="uid://dgykpa57unql0" path="res://Art/9578af169d1ecc60aa5774fac7ef193e.jpg" id="6_wr0n1"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_15cus"]
+[ext_resource type="PackedScene" uid="uid://ce51h53enyje2" path="res://Resources/Explosion.tscn" id="2_73nfu"]
+[ext_resource type="Texture2D" uid="uid://dv41255pr6yvh" path="res://Art/gracz2.png" id="3_ncn8x"]
+[ext_resource type="AudioStream" uid="uid://bt602c1sijrpu" path="res://muzyka/lvl.wav" id="4_rjxbi"]
+[ext_resource type="AudioStream" uid="uid://dlk7l0b4ee0ii" path="res://muzyka/hurt.wav" id="5_5etmt"]
+[ext_resource type="AudioStream" uid="uid://dl5uw6iblybeu" path="res://muzyka/skok.wav" id="6_yl1vb"]
+[ext_resource type="Texture2D" uid="uid://dgykpa57unql0" path="res://Art/9578af169d1ecc60aa5774fac7ef193e.jpg" id="7_7mhyf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hq30n"]
 
@@ -218,9 +218,9 @@ size = Vector2(16, 15)
 
 [node name="player" type="CharacterBody2D"]
 platform_on_leave = 1
-script = ExtResource("1_ler1d")
+script = ExtResource("1_15cus")
 
-[node name="Explosion" parent="." instance=ExtResource("2_3q7r5")]
+[node name="Explosion" parent="." instance=ExtResource("2_73nfu")]
 process_mode = 3
 z_index = 7
 
@@ -233,17 +233,8 @@ collision_mask = 2
 shape = SubResource("CapsuleShape2D_hq30n")
 debug_color = Color(0.991193, 0, 0.268754, 0.42)
 
-[node name="Hurtbox2" type="Area2D" parent="."]
-unique_name_in_owner = true
-collision_layer = 3
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox2"]
-shape = SubResource("CapsuleShape2D_hq30n")
-debug_color = Color(0.991193, 0, 0.268754, 0.42)
-
 [node name="Player" type="Sprite2D" parent="."]
-texture = ExtResource("2_ddrs8")
+texture = ExtResource("3_ncn8x")
 hframes = 5
 vframes = 8
 
@@ -262,15 +253,15 @@ libraries = {
 }
 
 [node name="Nuta" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_1xatk")
+stream = ExtResource("4_rjxbi")
 autoplay = true
 
 [node name="Hurt" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
-stream = ExtResource("4_ef6ow")
+stream = ExtResource("5_5etmt")
 
 [node name="Skok" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_lwrp8")
+stream = ExtResource("6_yl1vb")
 
 [node name="Sad" type="Area2D" parent="."]
 
@@ -289,7 +280,7 @@ wait_time = 2.0
 color = Color(0.447059, 0.643137, 0.533333, 1)
 energy = 2.0
 shadow_enabled = true
-texture = ExtResource("6_wr0n1")
+texture = ExtResource("7_7mhyf")
 
 [node name="CrushBox" type="Area2D" parent="."]
 
@@ -298,7 +289,6 @@ position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_geiwg")
 
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
-[connection signal="body_entered" from="Hurtbox2" to="." method="_on_hurtbox_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="finished" from="Nuta" to="." method="_on_nuta_finished"]
 [connection signal="area_entered" from="Sad" to="." method="_on_sad_area_entered"]
