@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_lqapv"]
 [ext_resource type="Texture2D" uid="uid://dtt8hekafw8l6" path="res://Art/menu.jpg" id="1_rpwu6"]
-[ext_resource type="FontFile" uid="uid://dk4vqiyvb85mr" path="res://Resources/ka1.ttf" id="2_iarum"]
+[ext_resource type="FontFile" uid="uid://duqxryqdnadgl" path="res://Resources/ka1.ttf" id="2_iarum"]
 [ext_resource type="Texture2D" uid="uid://cyqmm1xycw18e" path="res://Art/przyciskkilk.png" id="3_665i2"]
 [ext_resource type="Texture2D" uid="uid://d0gbmy4urpqtl" path="res://Art/przyciskmenu.png" id="5_4bdyf"]
 [ext_resource type="AudioStream" uid="uid://bs8rkgpcfr5om" path="res://muzyka/menu.wav" id="6_y5th5"]
@@ -51,6 +51,7 @@ offset_top = 295.0
 offset_right = 1069.0
 offset_bottom = 396.0
 theme_override_fonts/font = ExtResource("2_iarum")
+theme_override_font_sizes/font_size = 31
 theme_override_styles/hover = SubResource("StyleBoxTexture_j44ca")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_6ax3y")
 theme_override_styles/normal = SubResource("StyleBoxTexture_rhi5v")
@@ -160,6 +161,7 @@ offset_top = 460.0
 offset_right = 1104.0
 offset_bottom = 484.0
 theme_override_fonts/font = ExtResource("2_iarum")
+theme_override_font_sizes/font_size = 31
 text = "TO MOVE"
 
 [node name="Label2" type="Label" parent="CanvasLayer"]
@@ -168,6 +170,7 @@ offset_top = 559.0
 offset_right = 1104.0
 offset_bottom = 607.0
 theme_override_fonts/font = ExtResource("2_iarum")
+theme_override_font_sizes/font_size = 31
 text = "TO DASH"
 
 [connection signal="pressed" from="CanvasLayer/graj" to="." method="_on_graj_pressed"]
