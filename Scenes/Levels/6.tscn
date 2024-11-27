@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://crk77prana4uk"]
+[gd_scene load_steps=11 format=4 uid="uid://crk77prana4uk"]
 
 [ext_resource type="Texture2D" uid="uid://ccmsi3v3igjca" path="res://Art/tło.png" id="1_pcm17"]
 [ext_resource type="PackedScene" uid="uid://1jbsymlboehv" path="res://Resources/end.tscn" id="2_apgxl"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bdcqkso3pxkch" path="res://Resources/platform.tscn" id="7_a4eio"]
 [ext_resource type="PackedScene" uid="uid://dr4xmdjfe5y7b" path="res://Resources/button.tscn" id="8_e4d6y"]
 [ext_resource type="Material" uid="uid://cny4is2fkvm0a" path="res://Resources/shader.tres" id="9_opuxa"]
+[ext_resource type="PackedScene" uid="uid://g48s5ebosck8" path="res://Resources/kolec.tscn" id="10_yjjhs"]
 
 [node name="Level" type="Node2D"]
 
@@ -111,3 +112,36 @@ material = ExtResource("9_opuxa")
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(1, 1, 1, 0.0980392)
+
+[node name="Kolec" parent="." instance=ExtResource("10_yjjhs")]
+position = Vector2(208, 592)
+
+[node name="Kolec2" parent="." instance=ExtResource("10_yjjhs")]
+position = Vector2(176, 592)
+
+[node name="Kolec3" parent="." instance=ExtResource("10_yjjhs")]
+position = Vector2(144, 592)
+
+[node name="Kolec4" parent="." instance=ExtResource("10_yjjhs")]
+position = Vector2(112, 592)
+
+[node name="Kolec5" parent="." instance=ExtResource("10_yjjhs")]
+position = Vector2(80, 592)
+
+[node name="Kolec6" parent="." instance=ExtResource("10_yjjhs")]
+position = Vector2(48, 592)
+
+[node name="Kolec7" parent="." instance=ExtResource("10_yjjhs")]
+position = Vector2(560, 592)
+
+[node name="Kolec8" parent="." instance=ExtResource("10_yjjhs")]
+position = Vector2(528, 592)
+
+[node name="Kolec9" parent="." instance=ExtResource("10_yjjhs")]
+position = Vector2(496, 592)
+
+[node name="Kolec10" parent="." instance=ExtResource("10_yjjhs")]
+position = Vector2(464, 592)
+
+[node name="Kolec11" parent="." instance=ExtResource("10_yjjhs")]
+position = Vector2(432, 592)
