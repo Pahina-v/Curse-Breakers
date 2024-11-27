@@ -7,7 +7,20 @@ var SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const DASH = 10000.0
 var is_sad = false
+var coyote_timer : Timer 
+var coyote_jump_available := true
+const COYOTE_TIME = 0.08
 @onready var root = get_node("/root/Main")
+
+
+func _ready() -> void:
+	coyote_timer = Timer.new()
+	coyote_timer.wait_time = COYOTE_TIME
+	coyote_timer.one_shot = true
+	add_child(coyote_timer)
+	coyote_timer.timeout.connect(coyote_timeout)
+
+
 func _physics_process(delta: float) -> void:
 	Global.past_positions.push_back(global_position)
 	Global.current_anim.push_back(anim)
@@ -17,17 +30,25 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	
 	# Handle jump.
-	if Input.is_action_just_pressed("up") and is_on_floor():
-		$Skok.play()
-		velocity.y = JUMP_VELOCITY
-		if !is_sad:
-			%AnimationPlayer.play('jump_normal')
-			anim = 'jump_normal'
-		else:
-			%AnimationPlayer.play('jump_sad')
-			anim = 'jump_sad'
+	if Input.is_action_just_pressed("up"):
+		if coyote_jump_available:
+			$Skok.play()
+			velocity.y = JUMP_VELOCITY
+			coyote_jump_available = false
+			if !is_sad:
+				%AnimationPlayer.play('jump_normal')
+				anim = 'jump_normal'
+			else:
+				%AnimationPlayer.play('jump_sad')
+				anim = 'jump_sad'
 			
-			
+	if is_on_floor():
+		coyote_jump_available = true
+		coyote_timer.stop()
+	else:
+		if coyote_jump_available:
+			if coyote_timer.is_stopped():
+				coyote_timer.start()
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left", "right")
@@ -134,3 +155,7 @@ func _on_crush_box_body_entered(body: Node2D) -> void:
 	#$"../CanvasLayer". visible = true
 	$Hurt.play()
 	$Death.start()
+
+
+func coyote_timeout() -> void:
+	coyote_jump_available = false
