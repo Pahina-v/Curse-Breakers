@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bvnnuc4jlghve"]
+[gd_scene load_steps=29 format=3 uid="uid://bvnnuc4jlghve"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_lqapv"]
 [ext_resource type="Texture2D" uid="uid://dtt8hekafw8l6" path="res://Art/menu.jpg" id="1_rpwu6"]
@@ -6,6 +6,25 @@
 [ext_resource type="Texture2D" uid="uid://cyqmm1xycw18e" path="res://Art/przyciskkilk.png" id="3_665i2"]
 [ext_resource type="Texture2D" uid="uid://d0gbmy4urpqtl" path="res://Art/przyciskmenu.png" id="5_4bdyf"]
 [ext_resource type="AudioStream" uid="uid://bs8rkgpcfr5om" path="res://muzyka/menu.wav" id="6_y5th5"]
+[ext_resource type="Texture2D" uid="uid://d10w07vcysw1t" path="res://Art/kenney_input-prompts-pixel-16/Tiles/tile_0041.png" id="7_4q5hj"]
+[ext_resource type="Texture2D" uid="uid://bneg1t8kwiaju" path="res://Art/kenney_input-prompts-pixel-16/Tiles/tile_0047.png" id="8_dkklr"]
+[ext_resource type="Texture2D" uid="uid://j052dgpu1t10" path="res://Art/kenney_input-prompts-pixel-16/Tiles/tile_0153.png" id="9_triwt"]
+[ext_resource type="Texture2D" uid="uid://vxp788lxn46v" path="res://Art/kenney_input-prompts-pixel-16/Tiles/tile_0048.png" id="9_ub522"]
+[ext_resource type="Texture2D" uid="uid://cqbxgmvldrhb8" path="res://Art/kenney_input-prompts-pixel-16/Tiles/tile_0049.png" id="10_8qpn6"]
+[ext_resource type="Texture2D" uid="uid://dg175ko5r4opo" path="res://Art/kenney_input-prompts-pixel-16/Tiles/tile_0653.png" id="10_jyibs"]
+[ext_resource type="Texture2D" uid="uid://y4q3o8h51wge" path="res://Art/kenney_input-prompts-pixel-16/Tiles/tile_0050.png" id="11_2vy3p"]
+[ext_resource type="Texture2D" uid="uid://d2n8kgb45dtck" path="res://Art/kenney_input-prompts-pixel-16/Tiles/tile_0654.png" id="11_rqob1"]
+[ext_resource type="Texture2D" uid="uid://ccjm3mss63ywm" path="res://Art/kenney_input-prompts-pixel-16/Tiles/tile_0655.png" id="12_i3eud"]
+[ext_resource type="Texture2D" uid="uid://clqhu7nl8hyxx" path="res://Art/kenney_input-prompts-pixel-16/Tiles/tile_0656.png" id="13_11x4k"]
+[ext_resource type="Texture2D" uid="uid://jxsc23bodcsf" path="res://Art/kenney_input-prompts-pixel-16/Tiles/tile_0086.png" id="13_scg55"]
+[ext_resource type="Texture2D" uid="uid://bqj763xlqpgus" path="res://Art/kenney_input-prompts-pixel-16/Tiles/tile_0120.png" id="14_0pid0"]
+[ext_resource type="Texture2D" uid="uid://c2rvjdm1u2usi" path="res://Art/kenney_input-prompts-pixel-16/Tiles/tile_0121.png" id="15_ykam5"]
+[ext_resource type="Texture2D" uid="uid://8wyimxnt155t" path="res://Art/kenney_input-prompts-pixel-16/Tiles/tile_0122.png" id="16_8xjsd"]
+[ext_resource type="Texture2D" uid="uid://bjop7txc680mj" path="res://Art/kenney_input-prompts-pixel-16/Tiles/tile_0166.png" id="21_aq1wq"]
+[ext_resource type="Texture2D" uid="uid://cihakxlh1nc5f" path="res://Art/kenney_input-prompts-pixel-16/Tiles/tile_0167.png" id="22_v0apn"]
+[ext_resource type="Texture2D" uid="uid://dicqhvtff0oes" path="res://Art/kenney_input-prompts-pixel-16/Tiles/tile_0168.png" id="23_rwth5"]
+[ext_resource type="Texture2D" uid="uid://bayqwib1ig3px" path="res://Art/kenney_input-prompts-pixel-16/Tiles/tile_0169.png" id="24_ayjm7"]
+[ext_resource type="Texture2D" uid="uid://dh267qsdnrcsm" path="res://Art/kenney_input-prompts-pixel-16/Tiles/tile_0246.png" id="25_udbas"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j44ca"]
 texture = ExtResource("3_665i2")
@@ -41,13 +60,115 @@ text = "PLAY"
 stream = ExtResource("6_y5th5")
 autoplay = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
-offset_left = 779.0
-offset_top = 429.0
-offset_right = 1110.0
-offset_bottom = 618.0
-text = "use WSAD/D-Pad/left stick/arrows to move the player
-press space/X(square)/Y(triangle)/any of the triggers to dash"
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 855.0
+offset_top = 538.0
+offset_right = 855.0
+offset_bottom = 538.0
+scale = Vector2(2, 2)
+
+[node name="Tile0049" type="Sprite2D" parent="CanvasLayer/Control"]
+position = Vector2(21, 0)
+texture = ExtResource("10_8qpn6")
+
+[node name="Tile0050" type="Sprite2D" parent="CanvasLayer/Control"]
+position = Vector2(37, 0)
+texture = ExtResource("11_2vy3p")
+
+[node name="Tile0153" type="Sprite2D" parent="CanvasLayer/Control"]
+position = Vector2(37, 31)
+texture = ExtResource("9_triwt")
+
+[node name="Tile0653" type="Sprite2D" parent="CanvasLayer/Control"]
+position = Vector2(-18, 15.5)
+texture = ExtResource("10_jyibs")
+
+[node name="Tile0654" type="Sprite2D" parent="CanvasLayer/Control"]
+position = Vector2(0, 15.5)
+texture = ExtResource("11_rqob1")
+
+[node name="Tile0655" type="Sprite2D" parent="CanvasLayer/Control"]
+position = Vector2(18, 15.5)
+texture = ExtResource("12_i3eud")
+
+[node name="Tile0656" type="Sprite2D" parent="CanvasLayer/Control"]
+position = Vector2(36, 15.5)
+texture = ExtResource("13_11x4k")
+
+[node name="Container" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 855.0
+offset_top = 482.0
+offset_right = 895.0
+offset_bottom = 522.0
+scale = Vector2(2, 2)
+
+[node name="Tile0041" type="Sprite2D" parent="CanvasLayer/Container"]
+position = Vector2(37, -23)
+texture = ExtResource("7_4q5hj")
+
+[node name="Tile0047" type="Sprite2D" parent="CanvasLayer/Container"]
+position = Vector2(4, -23)
+texture = ExtResource("8_dkklr")
+
+[node name="Tile0048" type="Sprite2D" parent="CanvasLayer/Container"]
+position = Vector2(20, -23)
+texture = ExtResource("9_ub522")
+
+[node name="Tile0086" type="Sprite2D" parent="CanvasLayer/Container"]
+position = Vector2(-7.5, -6.5)
+texture = ExtResource("13_scg55")
+
+[node name="Tile0120" type="Sprite2D" parent="CanvasLayer/Container"]
+position = Vector2(22.5, -6.5)
+texture = ExtResource("14_0pid0")
+
+[node name="Tile0121" type="Sprite2D" parent="CanvasLayer/Container"]
+position = Vector2(7.5, -6.5)
+texture = ExtResource("15_ykam5")
+
+[node name="Tile0122" type="Sprite2D" parent="CanvasLayer/Container"]
+position = Vector2(37.5, -6.5)
+texture = ExtResource("16_8xjsd")
+
+[node name="Tile0166" type="Sprite2D" parent="CanvasLayer/Container"]
+position = Vector2(-7.5, 9)
+texture = ExtResource("21_aq1wq")
+
+[node name="Tile0167" type="Sprite2D" parent="CanvasLayer/Container"]
+position = Vector2(37.5, 9)
+texture = ExtResource("22_v0apn")
+
+[node name="Tile0168" type="Sprite2D" parent="CanvasLayer/Container"]
+position = Vector2(7.5, 9)
+texture = ExtResource("23_rwth5")
+
+[node name="Tile0169" type="Sprite2D" parent="CanvasLayer/Container"]
+position = Vector2(22.5, 9)
+texture = ExtResource("24_ayjm7")
+
+[node name="Tile0246" type="Sprite2D" parent="CanvasLayer/Container"]
+position = Vector2(-11, -24)
+texture = ExtResource("25_udbas")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 950.0
+offset_top = 460.0
+offset_right = 1104.0
+offset_bottom = 484.0
+theme_override_fonts/font = ExtResource("2_iarum")
+text = "TO MOVE"
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 948.0
+offset_top = 559.0
+offset_right = 1104.0
+offset_bottom = 607.0
+theme_override_fonts/font = ExtResource("2_iarum")
+text = "TO DASH"
 
 [connection signal="pressed" from="CanvasLayer/graj" to="." method="_on_graj_pressed"]
 [connection signal="finished" from="CanvasLayer/Menu" to="." method="_on_menu_finished"]
