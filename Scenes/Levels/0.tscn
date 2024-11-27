@@ -57,15 +57,6 @@ text = "
 
 [center]YOU DIED[/center]"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 880.0
-offset_top = 32.0
-offset_right = 1120.0
-offset_bottom = 256.0
-text = "	To dash press space
-	move with WASD
-	run away from yourself!"
-
 [node name="ColorRect" type="ColorRect" parent="."]
 material = ExtResource("7_jcfl2")
 offset_right = 1152.0

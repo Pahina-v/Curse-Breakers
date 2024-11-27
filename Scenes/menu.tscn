@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bvnnuc4jlghve"]
+[gd_scene load_steps=10 format=3 uid="uid://bvnnuc4jlghve"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_lqapv"]
 [ext_resource type="Texture2D" uid="uid://dtt8hekafw8l6" path="res://Art/menu.jpg" id="1_rpwu6"]
@@ -16,9 +16,6 @@ texture = ExtResource("3_665i2")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rhi5v"]
 texture = ExtResource("5_4bdyf")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0n3xg"]
-texture = ExtResource("3_665i2")
-
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_lqapv")
 
@@ -30,31 +27,27 @@ offset_bottom = 40.0
 texture = ExtResource("1_rpwu6")
 
 [node name="graj" type="Button" parent="CanvasLayer"]
-offset_left = 785.0
-offset_top = 354.0
-offset_right = 1055.0
-offset_bottom = 455.0
+offset_left = 799.0
+offset_top = 295.0
+offset_right = 1069.0
+offset_bottom = 396.0
 theme_override_fonts/font = ExtResource("2_iarum")
 theme_override_styles/hover = SubResource("StyleBoxTexture_j44ca")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_6ax3y")
 theme_override_styles/normal = SubResource("StyleBoxTexture_rhi5v")
 text = "PLAY"
 
-[node name="wyjdz" type="Button" parent="CanvasLayer"]
-offset_left = 785.0
-offset_top = 485.0
-offset_right = 1055.0
-offset_bottom = 586.0
-theme_override_fonts/font = ExtResource("2_iarum")
-theme_override_styles/hover = SubResource("StyleBoxTexture_0n3xg")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_6ax3y")
-theme_override_styles/normal = SubResource("StyleBoxTexture_rhi5v")
-text = "QUIT"
-
 [node name="Menu" type="AudioStreamPlayer" parent="CanvasLayer"]
 stream = ExtResource("6_y5th5")
 autoplay = true
 
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 779.0
+offset_top = 429.0
+offset_right = 1110.0
+offset_bottom = 618.0
+text = "use WSAD/D-Pad/left stick/arrows to move the player
+press space/X(square)/Y(triangle)/any of the triggers to dash"
+
 [connection signal="pressed" from="CanvasLayer/graj" to="." method="_on_graj_pressed"]
-[connection signal="pressed" from="CanvasLayer/wyjdz" to="." method="_on_wyjdz_pressed"]
 [connection signal="finished" from="CanvasLayer/Menu" to="." method="_on_menu_finished"]
