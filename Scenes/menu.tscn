@@ -57,6 +57,11 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_6ax3y")
 theme_override_styles/normal = SubResource("StyleBoxTexture_rhi5v")
 text = "PLAY"
 
+[node name="Tile0049" type="Sprite2D" parent="CanvasLayer/graj"]
+position = Vector2(88, 49)
+scale = Vector2(2, 2)
+texture = ExtResource("8_dkklr")
+
 [node name="Menu" type="AudioStreamPlayer" parent="CanvasLayer"]
 stream = ExtResource("6_y5th5")
 autoplay = true
