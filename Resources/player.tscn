@@ -1,9 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://njlsu23nssbr"]
+[gd_scene load_steps=23 format=3 uid="uid://njlsu23nssbr"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_ler1d"]
 [ext_resource type="PackedScene" uid="uid://ce51h53enyje2" path="res://Resources/Explosion.tscn" id="2_3q7r5"]
 [ext_resource type="Texture2D" uid="uid://tlvls6jenh5f" path="res://Art/gracz.png" id="2_ddrs8"]
-[ext_resource type="AudioStream" uid="uid://bt602c1sijrpu" path="res://muzyka/lvl.wav" id="3_1xatk"]
 [ext_resource type="AudioStream" uid="uid://dlk7l0b4ee0ii" path="res://muzyka/hurt.wav" id="4_ef6ow"]
 [ext_resource type="AudioStream" uid="uid://dl5uw6iblybeu" path="res://muzyka/skok.wav" id="5_lwrp8"]
 [ext_resource type="Texture2D" uid="uid://dgykpa57unql0" path="res://Art/9578af169d1ecc60aa5774fac7ef193e.jpg" id="6_wr0n1"]
@@ -262,10 +261,6 @@ libraries = {
 "": SubResource("AnimationLibrary_2qj2h")
 }
 
-[node name="Nuta" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_1xatk")
-autoplay = true
-
 [node name="Hurt" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = ExtResource("4_ef6ow")
@@ -301,7 +296,6 @@ shape = SubResource("RectangleShape2D_geiwg")
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
 [connection signal="body_entered" from="Hurtbox2" to="." method="_on_hurtbox_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="finished" from="Nuta" to="." method="_on_nuta_finished"]
 [connection signal="area_entered" from="Sad" to="." method="_on_sad_area_entered"]
 [connection signal="area_exited" from="Sad" to="." method="_on_sad_area_exited"]
 [connection signal="timeout" from="Death" to="." method="_on_death_timeout"]

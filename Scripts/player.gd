@@ -140,8 +140,6 @@ func _on_death_timeout() -> void:
 	
 
 
-func _on_nuta_finished() -> void:
-	$Nuta.play()
 
 
 func _on_dash_timeout() -> void:

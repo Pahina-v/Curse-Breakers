@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://by8bv45m65lff"]
+[gd_scene load_steps=3 format=3 uid="uid://by8bv45m65lff"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_oicx8"]
+[ext_resource type="AudioStream" uid="uid://bdpnhdt1u60fx" path="res://muzyka/nowanutatop.wav" id="2_0obq5"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_oicx8")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_0obq5")
+volume_db = -7.0
+autoplay = true
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

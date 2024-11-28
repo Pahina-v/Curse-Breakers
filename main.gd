@@ -27,3 +27,7 @@ func next_level():
 	current += 1
 	add_child(levels[current])
 	Global.past_positions = [Vector2(-100, -100)]
+
+
+func _on_audio_stream_player_finished() -> void:
+	$AudioStreamPlayer.play()
