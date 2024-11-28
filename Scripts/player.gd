@@ -114,7 +114,9 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 	get_tree().paused = true
 	$"../CanvasLayer". visible = true
 	$Hurt.play()
+	Global.deaths += 1
 	$Death.start()
+	
 
 
 
@@ -136,6 +138,7 @@ func _on_sad_area_exited(area: Area2D) -> void:
 func _on_death_timeout() -> void:
 	get_tree().paused = false
 	$"../CanvasLayer".visible = false
+	Global.deaths += 1
 	root.load_level()
 	
 

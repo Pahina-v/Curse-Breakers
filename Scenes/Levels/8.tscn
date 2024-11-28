@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=4 uid="uid://gy34oc88ilph"]
+[gd_scene load_steps=6 format=4 uid="uid://dvvgapamxotjw"]
 
 [ext_resource type="Texture2D" uid="uid://ccmsi3v3igjca" path="res://Art/tło.png" id="1_d7h1n"]
+[ext_resource type="Script" path="res://Scripts/8.gd" id="1_kslxd"]
 [ext_resource type="PackedScene" uid="uid://1jbsymlboehv" path="res://Resources/end.tscn" id="2_5gkye"]
 [ext_resource type="TileSet" uid="uid://b3p8bu7kdldei" path="res://Art/tileset.tres" id="4_wkmnw"]
 [ext_resource type="FontFile" uid="uid://duqxryqdnadgl" path="res://Resources/ka1.ttf" id="6_ahfhn"]
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_kslxd")
 
 [node name="Tło" type="Sprite2D" parent="."]
 position = Vector2(576, 324)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://by8bv45m65lff"]
+[gd_scene load_steps=4 format=3 uid="uid://by8bv45m65lff"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_oicx8"]
 [ext_resource type="AudioStream" uid="uid://bdpnhdt1u60fx" path="res://muzyka/nowanutatop.wav" id="2_0obq5"]
+[ext_resource type="PackedScene" uid="uid://v3i22r8tnnq3" path="res://Scenes/timer.tscn" id="3_u7u8e"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_oicx8")
@@ -10,5 +11,7 @@ script = ExtResource("1_oicx8")
 stream = ExtResource("2_0obq5")
 volume_db = -7.0
 autoplay = true
+
+[node name="Timer" parent="." instance=ExtResource("3_u7u8e")]
 
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
