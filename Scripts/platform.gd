@@ -13,6 +13,10 @@ extends Node2D
 @export_range(1, 4) var direction:int=1:
 	set(value):
 		direction = value
+		
+@export var moving: bool:
+	set(value):
+		moving = value
 			
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,7 +25,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if moving:
+		if $'AnimationPlayer'.current_animation_position == 0:
+			action()
+		if $'AnimationPlayer'.current_animation_position == move:
+			reverse_action()
+		
+		
 	
 func set_length():
 	if length == 1:

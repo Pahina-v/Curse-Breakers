@@ -1,6 +1,6 @@
 extends Node
 
-var LEVEL_COUNT = 9
+var LEVEL_COUNT = 11
 var levels = []
 var current = 0
 

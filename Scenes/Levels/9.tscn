@@ -1,0 +1,346 @@
+[gd_scene load_steps=11 format=4 uid="uid://dvvgapamxotjw"]
+
+[ext_resource type="Texture2D" uid="uid://ccmsi3v3igjca" path="res://Art/tło.png" id="1_chedf"]
+[ext_resource type="PackedScene" uid="uid://1jbsymlboehv" path="res://Resources/end.tscn" id="2_0fcga"]
+[ext_resource type="PackedScene" uid="uid://n8ojyfa15jch" path="res://Resources/wróg.tscn" id="3_wox72"]
+[ext_resource type="TileSet" uid="uid://b3p8bu7kdldei" path="res://Art/tileset.tres" id="4_4qv45"]
+[ext_resource type="PackedScene" uid="uid://njlsu23nssbr" path="res://Resources/player.tscn" id="5_8u0or"]
+[ext_resource type="FontFile" uid="uid://duqxryqdnadgl" path="res://Resources/ka1.ttf" id="6_3iueo"]
+[ext_resource type="PackedScene" uid="uid://bdcqkso3pxkch" path="res://Resources/platform.tscn" id="7_ovx0c"]
+[ext_resource type="PackedScene" uid="uid://dr4xmdjfe5y7b" path="res://Resources/button.tscn" id="8_dd60h"]
+[ext_resource type="Material" uid="uid://cny4is2fkvm0a" path="res://Resources/shader.tres" id="9_5hhho"]
+[ext_resource type="PackedScene" uid="uid://g48s5ebosck8" path="res://Resources/kolec.tscn" id="10_fgj6h"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Tło" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("1_chedf")
+
+[node name="End" parent="." instance=ExtResource("2_0fcga")]
+position = Vector2(992, 664)
+scale = Vector2(10, 1)
+
+[node name="enemy" parent="." instance=ExtResource("3_wox72")]
+position = Vector2(-112, 480)
+collision_layer = 2
+collision_mask = 3
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAAAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAAQAAgAAAAAAAAAAAAUAAgAAAAAAAAAAAAYAAgAAAAAAAAAAAAcAAgAAAAAAAAAAAAgAAgAAAAAAAAAAAAkAAgAAAAAAAAAAAAoAAgAAAAAAAAAAAAsAAgAAAAAAAAAAAAwAAgAAAAAAAAAAAA0AAgAAAAAAAAAAAA4AAgAAAAAAAAAAAA8AAgAAAAAAAAAAABAAAgAAAAAAAAAAABEAAgAAAAAAAAAAABIAAgAAAAAAAAAAABMAAgAAAAAAAAAjABMAAgAAAAAAAAAjABIAAgAAAAAAAAAjABEAAgAAAAAAAAAjABAAAgAAAAAAAAAjAA8AAgAAAAAAAAAjAA4AAgAAAAAAAAAjAA0AAgAAAAAAAAAjAAwAAgAAAAAAAAAjAAsAAgAAAAAAAAAjAAoAAgAAAAAAAAAjAAkAAgAAAAAAAAAjAAgAAgAAAAAAAAAjAAcAAgAAAAAAAAAjAAYAAgAAAAAAAAAjAAUAAgAAAAAAAAAjAAQAAgAAAAAAAAAjAAMAAgAAAAAAAAAjAAIAAgAAAAAAAAAjAAEAAgAAAAAAAAAjAAAAAgAAAAAAAAAiAAAAAgAAAAAAAAAhAAAAAgAAAAAAAAAcAAAAAgAAAAAAAAAbAAAAAgAAAAAAAAAaAAAAAgAAAAAAAAAZAAAAAgAAAAAAAAAYAAAAAgAAAAAAAAAXAAAAAgAAAAAAAAAWAAAAAgAAAAAAAAAVAAAAAgAAAAAAAAAUAAAAAgAAAAAAAAATAAAAAgAAAAAAAAASAAAAAgAAAAAAAAARAAAAAgAAAAAAAAAQAAAAAgAAAAAAAAAPAAAAAgAAAAAAAAAOAAAAAgAAAAAAAAANAAAAAgAAAAAAAAAMAAAAAgAAAAAAAAALAAAAAgAAAAAAAAAKAAAAAgAAAAAAAAAJAAAAAgAAAAAAAAAIAAAAAgAAAAAAAAAHAAAAAgAAAAAAAAAGAAAAAgAAAAAAAAAFAAAAAgAAAAAAAAAEAAAAAgAAAAAAAAADAAAAAgAAAAAAAAACAAAAAgAAAAAAAAAAABQAAgAAAAAAAAABABQAAgAAAAAAAAACABQAAgAAAAAAAAADABQAAgAAAAAAAAAEABQAAgAAAAAAAAAFABQAAgAAAAAAAAAGABQAAgAAAAAAAAAHABQAAgAAAAAAAAAIABQAAgAAAAAAAAAJABQAAgAAAAAAAAAKABQAAgAAAAAAAAALABQAAgAAAAAAAAAMABQAAgAAAAAAAAANABQAAgAAAAAAAAAOABQAAgAAAAAAAAAPABQAAgAAAAAAAAAQABQAAgAAAAAAAAARABQAAgAAAAAAAAASABQAAgAAAAAAAAATABQAAgAAAAAAAAAUABQAAgAAAAAAAAAVABQAAgAAAAAAAAAWABQAAgAAAAAAAAAXABQAAgAAAAAAAAAYABQAAgAAAAAAAAAZABQAAgAAAAAAAAAaABQAAgAAAAAAAAAbABQAAgAAAAAAAAAcABQAAgAAAAAAAAAhABQAAgAAAAAAAAAiABQAAgAAAAAAAAAjABQAAgAAAAAAAAAcAP//AgAAAAAAAAAcAP7/AgAAAAAAAAAcAP3/AgAAAAAAAAAdAP3/AgAAAAAAAAAeAP3/AgAAAAAAAAAfAP3/AgAAAAAAAAAgAP3/AgAAAAAAAAAhAP3/AgAAAAAAAAAhAP7/AgAAAAAAAAAhAP//AgAAAAAAAAABAAAAAgAAAAAAAAAdAAUAAgAAAAAAAAAfAAUAAgAAAAAAAAAeAAUAAgAAAAAAAAAgAAUAAgAAAAAAAAAKAAUAAgAAAAAAAAAJAAUAAgAAAAAAAAAIAAUAAgAAAAAAAAAHAAUAAgAAAAAAAAAGAAUAAgAAAAAAAAAFAAUAAgAAAAAAAAAEAAUAAgAAAAAAAAADAAUAAgAAAAAAAAACAAUAAgAAAAAAAAABAAUAAgAAAAAAAAAhAAEAAgAAAAAAAAAiAAEAAgAAAAAAAAAKAAYAAgAAAAAAAAAKAAcAAgAAAAAAAAALAAcAAgAAAAAAAAAMAAcAAgAAAAAAAAANAAcAAgAAAAAAAAAOAAcAAgAAAAAAAAAPAAcAAgAAAAAAAAAQAAcAAgAAAAAAAAARAAcAAgAAAAAAAAASAAcAAgAAAAAAAAATAAcAAgAAAAAAAAAUAAcAAgAAAAAAAAAVAAcAAgAAAAAAAAAWAAcAAgAAAAAAAAAXAAcAAgAAAAAAAAAYAAcAAgAAAAAAAAAZAAcAAgAAAAAAAAAaAAcAAgAAAAAAAAAbAAcAAgAAAAAAAAAcAAcAAgAAAAAAAAAdAAcAAgAAAAAAAAAdAAYAAgAAAAAAAAAeAAcAAgAAAAAAAAAeAAYAAgAAAAAAAAAfAAYAAgAAAAAAAAAgAAYAAgAAAAAAAAAgAAcAAgAAAAAAAAAfAAcAAgAAAAAAAAAJAAcAAgAAAAAAAAAJAAYAAgAAAAAAAAAIAAYAAgAAAAAAAAAIAAcAAgAAAAAAAAAFAAcAAgAAAAAAAAAEAAcAAgAAAAAAAAADAAcAAgAAAAAAAAACAAcAAgAAAAAAAAABAAcAAgAAAAAAAAABAAYAAgAAAAAAAAACAAYAAgAAAAAAAAADAAYAAgAAAAAAAAAEAAYAAgAAAAAAAAAFAAYAAgAAAAAAAAAGAAYAAgAAAAAAAAAHAAYAAgAAAAAAAAAHAAcAAgAAAAAAAAAGAAcAAgAAAAAAAAAiAAoAAgAAAAAAAAAhAAoAAgAAAAAAAAAgAAoAAgAAAAAAAAAfAAoAAgAAAAAAAAAeAAoAAgAAAAAAAAAdAAoAAgAAAAAAAAAZAAoAAgAAAAAAAAAYAAoAAgAAAAAAAAAUAAoAAgAAAAAAAAATAAoAAgAAAAAAAAAPAAoAAgAAAAAAAAAOAAoAAgAAAAAAAAAKAAoAAgAAAAAAAAAJAAoAAgAAAAAAAAAIAAoAAgAAAAAAAAAHAAoAAgAAAAAAAAAGAAoAAgAAAAAAAAAFAAoAAgAAAAAAAAAEAAoAAgAAAAAAAAAdAAsAAgAAAAAAAAAcAAsAAgAAAAAAAAAbAAsAAgAAAAAAAAAaAAsAAgAAAAAAAAAeAAsAAgAAAAAAAAAfAAsAAgAAAAAAAAAgAAsAAgAAAAAAAAAhAAsAAgAAAAAAAAAiAAsAAgAAAAAAAAAZAAsAAgAAAAAAAAAYAAsAAgAAAAAAAAAXAAsAAgAAAAAAAAAWAAsAAgAAAAAAAAAVAAsAAgAAAAAAAAAUAAsAAgAAAAAAAAATAAsAAgAAAAAAAAASAAsAAgAAAAAAAAARAAsAAgAAAAAAAAAQAAsAAgAAAAAAAAAPAAsAAgAAAAAAAAAOAAsAAgAAAAAAAAANAAsAAgAAAAAAAAAMAAsAAgAAAAAAAAALAAsAAgAAAAAAAAAKAAsAAgAAAAAAAAAJAAsAAgAAAAAAAAAIAAsAAgAAAAAAAAAHAAsAAgAAAAAAAAAGAAsAAgAAAAAAAAAFAAsAAgAAAAAAAAANAAoAAgAAAAAAAAAVAAoAAgAAAAAAAAAaAAoAAgAAAAAAAAASAAoAAgAAAAAAAAADAAoAAgAAAAAAAAADAAsAAgAAAAAAAAADAAwAAgAAAAAAAAADAA0AAgAAAAAAAAADAA4AAgAAAAAAAAADAA8AAgAAAAAAAAADABAAAgAAAAAAAAADABEAAgAAAAAAAAAEAAsAAgAAAAAAAAAHAA8AAgAAAAAAAAAGAA8AAgAAAAAAAAAGABAAAgAAAAAAAAAGABEAAgAAAAAAAAAHABEAAgAAAAAAAAAHABAAAgAAAAAAAAAGABIAAgAAAAAAAAAGABMAAgAAAAAAAAAHABMAAgAAAAAAAAAHABIAAgAAAAAAAAALAAwAAgAAAAAAAAALAA0AAgAAAAAAAAALAA4AAgAAAAAAAAALAA8AAgAAAAAAAAALABAAAgAAAAAAAAALABEAAgAAAAAAAAAOABMAAgAAAAAAAAAOABIAAgAAAAAAAAAOABEAAgAAAAAAAAAOABAAAgAAAAAAAAAOAA8AAgAAAAAAAAAPAA8AAgAAAAAAAAAPABAAAgAAAAAAAAAPABEAAgAAAAAAAAAPABIAAgAAAAAAAAAPABMAAgAAAAAAAAASAAwAAgAAAAAAAAASAA0AAgAAAAAAAAASAA4AAgAAAAAAAAASAA8AAgAAAAAAAAASABAAAgAAAAAAAAASABEAAgAAAAAAAAAVABMAAgAAAAAAAAAVABIAAgAAAAAAAAAVABEAAgAAAAAAAAAVABAAAgAAAAAAAAAVAA8AAgAAAAAAAAAWAA8AAgAAAAAAAAAWABAAAgAAAAAAAAAWABEAAgAAAAAAAAAWABIAAgAAAAAAAAAWABMAAgAAAAAAAAAcABMAAgAAAAAAAAAbABMAAgAAAAAAAAAbABIAAgAAAAAAAAAbABEAAgAAAAAAAAAbABAAAgAAAAAAAAAbAA8AAgAAAAAAAAAcAA8AAgAAAAAAAAAcABAAAgAAAAAAAAAcABEAAgAAAAAAAAAcABIAAgAAAAAAAAAhABMAAgAAAAAAAAAhABIAAgAAAAAAAAAhABEAAgAAAAAAAAAhABAAAgAAAAAAAAAhAA8AAgAAAAAAAAAiAA8AAgAAAAAAAAAiABAAAgAAAAAAAAAiABEAAgAAAAAAAAAiABIAAgAAAAAAAAAiABMAAgAAAAAAAAAiAA4AAgAAAAAAAAAhAA4AAgAAAAAAAAAhAA0AAgAAAAAAAAAhAAwAAgAAAAAAAAAiAAwAAgAAAAAAAAAiAA0AAgAAAAAAAAA=")
+tile_set = ExtResource("4_4qv45")
+rendering_quadrant_size = 32
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("5_8u0or")]
+position = Vector2(992, -16)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("6_3iueo")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "
+
+
+
+[center]YOU DIED[/center]"
+
+[node name="Platform" parent="." instance=ExtResource("7_ovx0c")]
+position = Vector2(608, 160)
+move = 3
+length = 2
+direction = 2
+moving = true
+
+[node name="Platform16" parent="." instance=ExtResource("7_ovx0c")]
+position = Vector2(736, 416)
+moving = true
+
+[node name="Platform17" parent="." instance=ExtResource("7_ovx0c")]
+position = Vector2(768, 416)
+direction = 3
+moving = true
+
+[node name="Platform18" parent="." instance=ExtResource("7_ovx0c")]
+position = Vector2(800, 416)
+moving = true
+
+[node name="Platform19" parent="." instance=ExtResource("7_ovx0c")]
+position = Vector2(832, 416)
+direction = 3
+moving = true
+
+[node name="Platform2" parent="." instance=ExtResource("7_ovx0c")]
+position = Vector2(1056, 160)
+move = 3
+length = 2
+
+[node name="Button" parent="." node_paths=PackedStringArray("platform") instance=ExtResource("8_dd60h")]
+position = Vector2(32, 128)
+platform = NodePath("../Platform2")
+
+[node name="Kolec" parent="." instance=ExtResource("10_fgj6h")]
+position = Vector2(368, 208)
+
+[node name="Kolec2" parent="Kolec" instance=ExtResource("10_fgj6h")]
+position = Vector2(32, 0)
+
+[node name="Kolec3" parent="Kolec" instance=ExtResource("10_fgj6h")]
+position = Vector2(64, 0)
+
+[node name="Kolec4" parent="Kolec" instance=ExtResource("10_fgj6h")]
+position = Vector2(96, 0)
+
+[node name="Kolec5" parent="Kolec" instance=ExtResource("10_fgj6h")]
+position = Vector2(128, 0)
+
+[node name="Kolec6" parent="Kolec" instance=ExtResource("10_fgj6h")]
+position = Vector2(160, 0)
+
+[node name="Kolec7" parent="Kolec" instance=ExtResource("10_fgj6h")]
+position = Vector2(192, 0)
+
+[node name="Kolec8" parent="Kolec" instance=ExtResource("10_fgj6h")]
+position = Vector2(224, 0)
+
+[node name="Kolec9" parent="Kolec" instance=ExtResource("10_fgj6h")]
+position = Vector2(256, 0)
+
+[node name="Kolec10" parent="Kolec" instance=ExtResource("10_fgj6h")]
+position = Vector2(288, 0)
+
+[node name="Kolec11" parent="Kolec" instance=ExtResource("10_fgj6h")]
+position = Vector2(320, 0)
+
+[node name="Kolec12" parent="Kolec" instance=ExtResource("10_fgj6h")]
+position = Vector2(352, 0)
+
+[node name="Kolec13" parent="Kolec" instance=ExtResource("10_fgj6h")]
+position = Vector2(384, 0)
+
+[node name="Kolec14" parent="Kolec" instance=ExtResource("10_fgj6h")]
+position = Vector2(416, 0)
+
+[node name="Kolec15" parent="Kolec" instance=ExtResource("10_fgj6h")]
+position = Vector2(448, 0)
+
+[node name="Kolec16" parent="Kolec" instance=ExtResource("10_fgj6h")]
+position = Vector2(480, 0)
+
+[node name="Kolec17" parent="Kolec" instance=ExtResource("10_fgj6h")]
+position = Vector2(512, 0)
+
+[node name="Kolec18" parent="Kolec" instance=ExtResource("10_fgj6h")]
+position = Vector2(544, 0)
+
+[node name="Platform3" parent="." instance=ExtResource("7_ovx0c")]
+position = Vector2(960, 256)
+rotation = 1.5708
+move = 3
+length = 2
+direction = 3
+moving = true
+
+[node name="Platform4" parent="." instance=ExtResource("7_ovx0c")]
+position = Vector2(800, 256)
+rotation = 1.5708
+move = 3
+length = 2
+direction = 3
+moving = true
+
+[node name="Platform5" parent="." instance=ExtResource("7_ovx0c")]
+position = Vector2(608, 256)
+rotation = 1.5708
+move = 3
+length = 2
+direction = 3
+moving = true
+
+[node name="Platform6" parent="." instance=ExtResource("7_ovx0c")]
+position = Vector2(448, 256)
+rotation = 1.5708
+move = 3
+length = 2
+direction = 3
+moving = true
+
+[node name="Platform7" parent="." instance=ExtResource("7_ovx0c")]
+position = Vector2(864, 320)
+length = 2
+direction = 3
+
+[node name="Platform8" parent="." instance=ExtResource("7_ovx0c")]
+position = Vector2(704, 320)
+length = 2
+direction = 3
+
+[node name="Platform9" parent="." instance=ExtResource("7_ovx0c")]
+position = Vector2(512, 320)
+length = 2
+direction = 3
+
+[node name="Platform10" parent="." instance=ExtResource("7_ovx0c")]
+position = Vector2(352, 320)
+length = 2
+direction = 3
+
+[node name="Button2" parent="." node_paths=PackedStringArray("platform") instance=ExtResource("8_dd60h")]
+position = Vector2(960, 288)
+platform = NodePath("../Platform7")
+
+[node name="Button3" parent="." node_paths=PackedStringArray("platform") instance=ExtResource("8_dd60h")]
+position = Vector2(800, 288)
+platform = NodePath("../Platform8")
+
+[node name="Button4" parent="." node_paths=PackedStringArray("platform") instance=ExtResource("8_dd60h")]
+position = Vector2(608, 288)
+platform = NodePath("../Platform9")
+
+[node name="Button5" parent="." node_paths=PackedStringArray("platform") instance=ExtResource("8_dd60h")]
+position = Vector2(448, 288)
+platform = NodePath("../Platform10")
+
+[node name="Platform11" parent="." instance=ExtResource("7_ovx0c")]
+position = Vector2(96, 320)
+rotation = 1.5708
+length = 8
+moving = true
+
+[node name="Platform12" parent="." instance=ExtResource("7_ovx0c")]
+position = Vector2(64, 320)
+rotation = 1.5708
+length = 8
+direction = 3
+moving = true
+
+[node name="Platform13" parent="." instance=ExtResource("7_ovx0c")]
+position = Vector2(128, 544)
+move = 3
+length = 2
+direction = 3
+moving = true
+
+[node name="Platform14" parent="." instance=ExtResource("7_ovx0c")]
+position = Vector2(384, 544)
+move = 3
+length = 2
+direction = 3
+moving = true
+
+[node name="Platform15" parent="." instance=ExtResource("7_ovx0c")]
+position = Vector2(608, 544)
+move = 3
+length = 2
+direction = 3
+moving = true
+
+[node name="Kolec2" parent="." instance=ExtResource("10_fgj6h")]
+position = Vector2(336, 400)
+rotation = 4.71239
+
+[node name="Kolec3" parent="Kolec2" instance=ExtResource("10_fgj6h")]
+position = Vector2(-32, 3.81596e-07)
+
+[node name="Kolec4" parent="Kolec2" instance=ExtResource("10_fgj6h")]
+position = Vector2(-64, 7.63192e-07)
+
+[node name="Kolec5" parent="Kolec2" instance=ExtResource("10_fgj6h")]
+position = Vector2(-96, 1.14479e-06)
+
+[node name="Kolec6" parent="Kolec2" instance=ExtResource("10_fgj6h")]
+position = Vector2(-128, 1.52638e-06)
+
+[node name="Kolec7" parent="Kolec2" instance=ExtResource("10_fgj6h")]
+position = Vector2(-160, 1.90798e-06)
+
+[node name="Kolec8" parent="Kolec2" instance=ExtResource("10_fgj6h")]
+position = Vector2(0, 224)
+
+[node name="Kolec9" parent="Kolec2" instance=ExtResource("10_fgj6h")]
+position = Vector2(-32, 224)
+
+[node name="Kolec10" parent="Kolec2" instance=ExtResource("10_fgj6h")]
+position = Vector2(-64, 224)
+
+[node name="Kolec11" parent="Kolec2" instance=ExtResource("10_fgj6h")]
+position = Vector2(-96, 224)
+
+[node name="Kolec12" parent="Kolec2" instance=ExtResource("10_fgj6h")]
+position = Vector2(-160, 224)
+
+[node name="Kolec14" parent="Kolec2" instance=ExtResource("10_fgj6h")]
+position = Vector2(-96, -64)
+rotation = 3.14159
+
+[node name="Kolec19" parent="Kolec2" instance=ExtResource("10_fgj6h")]
+position = Vector2(-96, 192)
+rotation = 3.14159
+
+[node name="Kolec20" parent="Kolec2" instance=ExtResource("10_fgj6h")]
+position = Vector2(-128, 192)
+rotation = 3.14159
+
+[node name="Kolec21" parent="Kolec2" instance=ExtResource("10_fgj6h")]
+position = Vector2(-160, 192)
+rotation = 3.14159
+
+[node name="Kolec22" parent="Kolec2" instance=ExtResource("10_fgj6h")]
+position = Vector2(-192, 192)
+rotation = 3.14159
+
+[node name="Kolec23" parent="Kolec2" instance=ExtResource("10_fgj6h")]
+position = Vector2(-224, 192)
+rotation = 3.14159
+
+[node name="Kolec15" parent="Kolec2" instance=ExtResource("10_fgj6h")]
+position = Vector2(-128, -64)
+rotation = 3.14159
+
+[node name="Kolec16" parent="Kolec2" instance=ExtResource("10_fgj6h")]
+position = Vector2(-160, -64)
+rotation = 3.14159
+
+[node name="Kolec17" parent="Kolec2" instance=ExtResource("10_fgj6h")]
+position = Vector2(-192, -64)
+rotation = 3.14159
+
+[node name="Kolec18" parent="Kolec2" instance=ExtResource("10_fgj6h")]
+position = Vector2(-224, -64)
+rotation = 3.14159
+
+[node name="Kolec13" parent="Kolec2" instance=ExtResource("10_fgj6h")]
+position = Vector2(-128, 224)
+
+[node name="Kolec3" parent="." instance=ExtResource("10_fgj6h")]
+position = Vector2(752, 624)
+
+[node name="Kolec4" parent="Kolec3" instance=ExtResource("10_fgj6h")]
+position = Vector2(32, 0)
+
+[node name="Kolec5" parent="Kolec3" instance=ExtResource("10_fgj6h")]
+position = Vector2(64, 0)
+
+[node name="Kolec6" parent="Kolec3" instance=ExtResource("10_fgj6h")]
+position = Vector2(96, 0)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource("9_5hhho")
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(1, 1, 1, 0.0980392)
