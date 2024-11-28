@@ -25,6 +25,10 @@ func _physics_process(delta: float) -> void:
 	Global.past_positions.push_back(global_position)
 	Global.current_anim.push_back(anim)
 	
+	if !is_sad:
+		$PointLight2D.color = '#72a488'
+	else:
+		$PointLight2D.color = '#c38671'
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta

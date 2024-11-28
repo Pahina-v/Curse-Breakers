@@ -1,14 +1,20 @@
-[gd_scene load_steps=10 format=4 uid="uid://dvvgapamxotjw"]
+[gd_scene load_steps=16 format=4 uid="uid://dvvgapamxotjw"]
 
 [ext_resource type="Texture2D" uid="uid://ccmsi3v3igjca" path="res://Art/tło.png" id="1_o7vib"]
 [ext_resource type="PackedScene" uid="uid://1jbsymlboehv" path="res://Resources/end.tscn" id="2_a57af"]
 [ext_resource type="PackedScene" uid="uid://n8ojyfa15jch" path="res://Resources/wróg.tscn" id="3_uv71i"]
+[ext_resource type="Texture2D" uid="uid://cqbxgmvldrhb8" path="res://Art/kenney_input-prompts-pixel-16/Tiles/tile_0049.png" id="4_6reve"]
 [ext_resource type="TileSet" uid="uid://b3p8bu7kdldei" path="res://Art/tileset.tres" id="4_osnue"]
 [ext_resource type="PackedScene" uid="uid://njlsu23nssbr" path="res://Resources/player.tscn" id="5_81bb5"]
+[ext_resource type="Texture2D" uid="uid://y4q3o8h51wge" path="res://Art/kenney_input-prompts-pixel-16/Tiles/tile_0050.png" id="5_js30a"]
 [ext_resource type="FontFile" uid="uid://duqxryqdnadgl" path="res://Resources/ka1.ttf" id="6_6jipq"]
+[ext_resource type="Texture2D" uid="uid://j052dgpu1t10" path="res://Art/kenney_input-prompts-pixel-16/Tiles/tile_0153.png" id="6_77txs"]
+[ext_resource type="Texture2D" uid="uid://dg175ko5r4opo" path="res://Art/kenney_input-prompts-pixel-16/Tiles/tile_0653.png" id="7_eb2mo"]
 [ext_resource type="PackedScene" uid="uid://bdcqkso3pxkch" path="res://Resources/platform.tscn" id="7_sp1sp"]
 [ext_resource type="PackedScene" uid="uid://dr4xmdjfe5y7b" path="res://Resources/button.tscn" id="8_jky28"]
+[ext_resource type="Texture2D" uid="uid://d2n8kgb45dtck" path="res://Art/kenney_input-prompts-pixel-16/Tiles/tile_0654.png" id="8_vk22l"]
 [ext_resource type="Material" uid="uid://cny4is2fkvm0a" path="res://Resources/shader.tres" id="9_xeibj"]
+[ext_resource type="PackedScene" uid="uid://g48s5ebosck8" path="res://Resources/kolec.tscn" id="10_y7f46"]
 
 [node name="Level" type="Node2D"]
 
@@ -20,13 +26,52 @@ texture = ExtResource("1_o7vib")
 position = Vector2(992, 664)
 scale = Vector2(10, 1)
 
+[node name="Label" type="Label" parent="."]
+offset_left = 280.0
+offset_top = 48.0
+offset_right = 758.0
+offset_bottom = 176.0
+theme_override_fonts/font = ExtResource("6_6jipq")
+theme_override_font_sizes/font_size = 31
+text = "THERE IS A REALLY TIGHT TIME 
+WINDOW HERE, USE YOUR DASH"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 648.0
+offset_top = 56.0
+offset_right = 648.0
+offset_bottom = 56.0
+scale = Vector2(2, 2)
+
+[node name="Tile0049" type="Sprite2D" parent="Control"]
+position = Vector2(21, 0)
+texture = ExtResource("4_6reve")
+
+[node name="Tile0050" type="Sprite2D" parent="Control"]
+position = Vector2(37, 0)
+texture = ExtResource("5_js30a")
+
+[node name="Tile0153" type="Sprite2D" parent="Control"]
+position = Vector2(37, 31)
+texture = ExtResource("6_77txs")
+
+[node name="Tile0653" type="Sprite2D" parent="Control"]
+position = Vector2(18.5, 15.5)
+texture = ExtResource("7_eb2mo")
+
+[node name="Tile0654" type="Sprite2D" parent="Control"]
+position = Vector2(36.5, 15.5)
+texture = ExtResource("8_vk22l")
+
 [node name="enemy" parent="." instance=ExtResource("3_uv71i")]
 position = Vector2(-112, 480)
 collision_layer = 2
 collision_mask = 3
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAAAAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAAQAAgAAAAAAAAAAAAUAAgAAAAAAAAAAAAYAAgAAAAAAAAAAAAcAAgAAAAAAAAAAAAgAAgAAAAAAAAAAAAkAAgAAAAAAAAAAAAoAAgAAAAAAAAAAAAsAAgAAAAAAAAAAAAwAAgAAAAAAAAAAAA0AAgAAAAAAAAAAAA4AAgAAAAAAAAAAAA8AAgAAAAAAAAAAABAAAgAAAAAAAAAAABEAAgAAAAAAAAAAABIAAgAAAAAAAAAAABMAAgAAAAAAAAABABMAAgAAAAAAAAACABMAAgAAAAAAAAADABMAAgAAAAAAAAAEABMAAgAAAAAAAAAFABMAAgAAAAAAAAAGABMAAgAAAAAAAAAHABMAAgAAAAAAAAAIABMAAgAAAAAAAAAJABMAAgAAAAAAAAAKABMAAgAAAAAAAAALABMAAgAAAAAAAAAMABMAAgAAAAAAAAANABMAAgAAAAAAAAAOABMAAgAAAAAAAAAPABMAAgAAAAAAAAAQABMAAgAAAAAAAAARABMAAgAAAAAAAAASABMAAgAAAAAAAAATABMAAgAAAAAAAAAUABMAAgAAAAAAAAAVABMAAgAAAAAAAAAWABMAAgAAAAAAAAAXABMAAgAAAAAAAAAYABMAAgAAAAAAAAAZABMAAgAAAAAAAAAaABMAAgAAAAAAAAAbABMAAgAAAAAAAAAcABMAAgAAAAAAAAAhABMAAgAAAAAAAAAiABMAAgAAAAAAAAAjABMAAgAAAAAAAAAjABIAAgAAAAAAAAAjABEAAgAAAAAAAAAjABAAAgAAAAAAAAAjAA8AAgAAAAAAAAAjAA4AAgAAAAAAAAAjAA0AAgAAAAAAAAAjAAwAAgAAAAAAAAAjAAsAAgAAAAAAAAAjAAoAAgAAAAAAAAAjAAkAAgAAAAAAAAAjAAgAAgAAAAAAAAAjAAcAAgAAAAAAAAAjAAYAAgAAAAAAAAAjAAUAAgAAAAAAAAAjAAQAAgAAAAAAAAAjAAMAAgAAAAAAAAAjAAIAAgAAAAAAAAAjAAEAAgAAAAAAAAAjAAAAAgAAAAAAAAAiAAAAAgAAAAAAAAAhAAAAAgAAAAAAAAAcAAAAAgAAAAAAAAAbAAAAAgAAAAAAAAAaAAAAAgAAAAAAAAAZAAAAAgAAAAAAAAAYAAAAAgAAAAAAAAAXAAAAAgAAAAAAAAAWAAAAAgAAAAAAAAAVAAAAAgAAAAAAAAAUAAAAAgAAAAAAAAATAAAAAgAAAAAAAAASAAAAAgAAAAAAAAARAAAAAgAAAAAAAAAQAAAAAgAAAAAAAAAPAAAAAgAAAAAAAAAOAAAAAgAAAAAAAAANAAAAAgAAAAAAAAAMAAAAAgAAAAAAAAALAAAAAgAAAAAAAAAKAAAAAgAAAAAAAAAJAAAAAgAAAAAAAAAIAAAAAgAAAAAAAAAHAAAAAgAAAAAAAAAGAAAAAgAAAAAAAAAFAAAAAgAAAAAAAAAEAAAAAgAAAAAAAAADAAAAAgAAAAAAAAACAAAAAgAAAAAAAAABAAAAAgAAAAAAAAAAABQAAgAAAAAAAAABABQAAgAAAAAAAAACABQAAgAAAAAAAAADABQAAgAAAAAAAAAEABQAAgAAAAAAAAAFABQAAgAAAAAAAAAGABQAAgAAAAAAAAAHABQAAgAAAAAAAAAIABQAAgAAAAAAAAAJABQAAgAAAAAAAAAKABQAAgAAAAAAAAALABQAAgAAAAAAAAAMABQAAgAAAAAAAAANABQAAgAAAAAAAAAOABQAAgAAAAAAAAAPABQAAgAAAAAAAAAQABQAAgAAAAAAAAARABQAAgAAAAAAAAASABQAAgAAAAAAAAATABQAAgAAAAAAAAAUABQAAgAAAAAAAAAVABQAAgAAAAAAAAAWABQAAgAAAAAAAAAXABQAAgAAAAAAAAAYABQAAgAAAAAAAAAZABQAAgAAAAAAAAAaABQAAgAAAAAAAAAbABQAAgAAAAAAAAAcABQAAgAAAAAAAAAhABQAAgAAAAAAAAAiABQAAgAAAAAAAAAjABQAAgAAAAAAAAAgAAUAAgAAAAAAAAAfAAUAAgAAAAAAAAAeAAUAAgAAAAAAAAAdAAUAAgAAAAAAAAAcAAUAAgAAAAAAAAAhAAUAAgAAAAAAAAAhAAEAAgAAAAAAAAAcAAEAAgAAAAAAAAAcAAYAAgAAAAAAAAAcAAcAAgAAAAAAAAAdAAcAAgAAAAAAAAAeAAcAAgAAAAAAAAAfAAcAAgAAAAAAAAAgAAcAAgAAAAAAAAAhAAcAAgAAAAAAAAAhAAYAAgAAAAAAAAAgAAYAAgAAAAAAAAAfAAYAAgAAAAAAAAAeAAYAAgAAAAAAAAAdAAYAAgAAAAAAAAAhAAoAAgAAAAAAAAAgAAoAAgAAAAAAAAAfAAoAAgAAAAAAAAAeAAoAAgAAAAAAAAAdAAoAAgAAAAAAAAAcAAoAAgAAAAAAAAAbAAoAAgAAAAAAAAAiAAoAAgAAAAAAAAAaAAoAAgAAAAAAAAAZAAoAAgAAAAAAAAAZAAYAAgAAAAAAAAAZAAUAAgAAAAAAAAAZAAQAAgAAAAAAAAAZAAMAAgAAAAAAAAAZAAIAAgAAAAAAAAAZAAEAAgAAAAAAAAAQAAoAAgAAAAAAAAAYAAoAAgAAAAAAAAAXAAoAAgAAAAAAAAAWAAoAAgAAAAAAAAAVAAoAAgAAAAAAAAAUAAoAAgAAAAAAAAATAAoAAgAAAAAAAAASAAoAAgAAAAAAAAARAAoAAgAAAAAAAAAPAAoAAgAAAAAAAAAOAAoAAgAAAAAAAAANAAoAAgAAAAAAAAAMAAoAAgAAAAAAAAALAAoAAgAAAAAAAAAKAAoAAgAAAAAAAAAJAAoAAgAAAAAAAAAIAAoAAgAAAAAAAAAHAAoAAgAAAAAAAAAGAAoAAgAAAAAAAAAFAAoAAgAAAAAAAAAEAAoAAgAAAAAAAAAEAAsAAgAAAAAAAAAEAAwAAgAAAAAAAAAEAA0AAgAAAAAAAAAEAA4AAgAAAAAAAAAEAA8AAgAAAAAAAAAIABEAAgAAAAAAAAAIABIAAgAAAAAAAAAIAA0AAgAAAAAAAAAIAAwAAgAAAAAAAAAIAAsAAgAAAAAAAAAMAAsAAgAAAAAAAAAMAAwAAgAAAAAAAAAMAA0AAgAAAAAAAAAMAA4AAgAAAAAAAAAMAA8AAgAAAAAAAAAPABIAAgAAAAAAAAAPABEAAgAAAAAAAAAPAA0AAgAAAAAAAAAPAAwAAgAAAAAAAAAPAAsAAgAAAAAAAAAUABIAAgAAAAAAAAAVABIAAgAAAAAAAAAWABIAAgAAAAAAAAAXABIAAgAAAAAAAAAYABIAAgAAAAAAAAAVABEAAgAAAAAAAAAWABEAAgAAAAAAAAAXABEAAgAAAAAAAAAYABEAAgAAAAAAAAAWABAAAgAAAAAAAAAXABAAAgAAAAAAAAAYABAAAgAAAAAAAAAYAA8AAgAAAAAAAAAXAA8AAgAAAAAAAAAYAA4AAgAAAAAAAAAcAP//AgAAAAAAAAAcAP7/AgAAAAAAAAAcAP3/AgAAAAAAAAAdAP3/AgAAAAAAAAAeAP3/AgAAAAAAAAAfAP3/AgAAAAAAAAAgAP3/AgAAAAAAAAAhAP3/AgAAAAAAAAAhAP7/AgAAAAAAAAAhAP//AgAAAAAAAAAZAAcAAgAAAAAAAAAHAAcAAgAAAAAAAAAHAAYAAgAAAAAAAAAHAAUAAgAAAAAAAAAHAAQAAgAAAAAAAAAHAAMAAgAAAAAAAAAHAAIAAgAAAAAAAAAHAAEAAgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAAQAAgAAAAAAAAAAAAUAAgAAAAAAAAAAAAYAAgAAAAAAAAAAAAcAAgAAAAAAAAAAAAgAAgAAAAAAAAAAAAkAAgAAAAAAAAAAAAoAAgAAAAAAAAAAAAsAAgAAAAAAAAAAAAwAAgAAAAAAAAAAAA0AAgAAAAAAAAAAAA4AAgAAAAAAAAAAAA8AAgAAAAAAAAAAABAAAgAAAAAAAAAAABEAAgAAAAAAAAAAABIAAgAAAAAAAAAAABMAAgAAAAAAAAABABMAAgAAAAAAAAACABMAAgAAAAAAAAADABMAAgAAAAAAAAANABMAAgAAAAAAAAAOABMAAgAAAAAAAAAPABMAAgAAAAAAAAAQABMAAgAAAAAAAAARABMAAgAAAAAAAAASABMAAgAAAAAAAAATABMAAgAAAAAAAAAUABMAAgAAAAAAAAAVABMAAgAAAAAAAAAWABMAAgAAAAAAAAAXABMAAgAAAAAAAAAYABMAAgAAAAAAAAAZABMAAgAAAAAAAAAaABMAAgAAAAAAAAAbABMAAgAAAAAAAAAcABMAAgAAAAAAAAAhABMAAgAAAAAAAAAiABMAAgAAAAAAAAAjABMAAgAAAAAAAAAjABIAAgAAAAAAAAAjABEAAgAAAAAAAAAjABAAAgAAAAAAAAAjAA8AAgAAAAAAAAAjAA4AAgAAAAAAAAAjAA0AAgAAAAAAAAAjAAwAAgAAAAAAAAAjAAsAAgAAAAAAAAAjAAoAAgAAAAAAAAAjAAkAAgAAAAAAAAAjAAgAAgAAAAAAAAAjAAcAAgAAAAAAAAAjAAYAAgAAAAAAAAAjAAUAAgAAAAAAAAAjAAQAAgAAAAAAAAAjAAMAAgAAAAAAAAAjAAIAAgAAAAAAAAAjAAEAAgAAAAAAAAAjAAAAAgAAAAAAAAAiAAAAAgAAAAAAAAAhAAAAAgAAAAAAAAAcAAAAAgAAAAAAAAAbAAAAAgAAAAAAAAAaAAAAAgAAAAAAAAAZAAAAAgAAAAAAAAAYAAAAAgAAAAAAAAAXAAAAAgAAAAAAAAAWAAAAAgAAAAAAAAAVAAAAAgAAAAAAAAAUAAAAAgAAAAAAAAATAAAAAgAAAAAAAAASAAAAAgAAAAAAAAARAAAAAgAAAAAAAAAQAAAAAgAAAAAAAAAPAAAAAgAAAAAAAAAOAAAAAgAAAAAAAAANAAAAAgAAAAAAAAAMAAAAAgAAAAAAAAALAAAAAgAAAAAAAAAKAAAAAgAAAAAAAAAJAAAAAgAAAAAAAAAIAAAAAgAAAAAAAAAHAAAAAgAAAAAAAAAGAAAAAgAAAAAAAAAFAAAAAgAAAAAAAAAEAAAAAgAAAAAAAAADAAAAAgAAAAAAAAACAAAAAgAAAAAAAAABAAAAAgAAAAAAAAAAABQAAgAAAAAAAAABABQAAgAAAAAAAAACABQAAgAAAAAAAAADABQAAgAAAAAAAAAEABQAAgAAAAAAAAAFABQAAgAAAAAAAAAGABQAAgAAAAAAAAAHABQAAgAAAAAAAAAIABQAAgAAAAAAAAAJABQAAgAAAAAAAAAKABQAAgAAAAAAAAALABQAAgAAAAAAAAAMABQAAgAAAAAAAAANABQAAgAAAAAAAAAOABQAAgAAAAAAAAAPABQAAgAAAAAAAAAQABQAAgAAAAAAAAARABQAAgAAAAAAAAASABQAAgAAAAAAAAATABQAAgAAAAAAAAAUABQAAgAAAAAAAAAVABQAAgAAAAAAAAAWABQAAgAAAAAAAAAXABQAAgAAAAAAAAAYABQAAgAAAAAAAAAZABQAAgAAAAAAAAAaABQAAgAAAAAAAAAbABQAAgAAAAAAAAAcABQAAgAAAAAAAAAhABQAAgAAAAAAAAAiABQAAgAAAAAAAAAjABQAAgAAAAAAAAAgAAUAAgAAAAAAAAAfAAUAAgAAAAAAAAAeAAUAAgAAAAAAAAAdAAUAAgAAAAAAAAAcAAUAAgAAAAAAAAAhAAUAAgAAAAAAAAAhAAEAAgAAAAAAAAAcAAEAAgAAAAAAAAAhAAoAAgAAAAAAAAAgAAoAAgAAAAAAAAAfAAoAAgAAAAAAAAAeAAoAAgAAAAAAAAAdAAoAAgAAAAAAAAAcAAoAAgAAAAAAAAAbAAoAAgAAAAAAAAAiAAoAAgAAAAAAAAAaAAoAAgAAAAAAAAAZAAoAAgAAAAAAAAAQAAoAAgAAAAAAAAAYAAoAAgAAAAAAAAAXAAoAAgAAAAAAAAAWAAoAAgAAAAAAAAAVAAoAAgAAAAAAAAAUAAoAAgAAAAAAAAATAAoAAgAAAAAAAAASAAoAAgAAAAAAAAARAAoAAgAAAAAAAAAPAAoAAgAAAAAAAAAOAAoAAgAAAAAAAAANAAoAAgAAAAAAAAAMAAoAAgAAAAAAAAALAAoAAgAAAAAAAAAKAAoAAgAAAAAAAAAJAAoAAgAAAAAAAAAIAAoAAgAAAAAAAAAHAAoAAgAAAAAAAAAGAAoAAgAAAAAAAAAFAAoAAgAAAAAAAAAEAAoAAgAAAAAAAAAUABIAAgAAAAAAAAAVABIAAgAAAAAAAAAWABIAAgAAAAAAAAAXABIAAgAAAAAAAAAYABIAAgAAAAAAAAAVABEAAgAAAAAAAAAWABEAAgAAAAAAAAAXABEAAgAAAAAAAAAYABEAAgAAAAAAAAAWABAAAgAAAAAAAAAXABAAAgAAAAAAAAAYABAAAgAAAAAAAAAYAA8AAgAAAAAAAAAXAA8AAgAAAAAAAAAYAA4AAgAAAAAAAAAcAP//AgAAAAAAAAAcAP7/AgAAAAAAAAAcAP3/AgAAAAAAAAAdAP3/AgAAAAAAAAAeAP3/AgAAAAAAAAAfAP3/AgAAAAAAAAAgAP3/AgAAAAAAAAAhAP3/AgAAAAAAAAAhAP7/AgAAAAAAAAAhAP//AgAAAAAAAAAcAAIAAgAAAAAAAAAcAAMAAgAAAAAAAAAcAAQAAgAAAAAAAAAUAAkAAgAAAAAAAAATAAkAAgAAAAAAAAALAAkAAgAAAAAAAAAMAAkAAgAAAAAAAAANAAkAAgAAAAAAAAAVAAkAAgAAAAAAAAAHAAkAAgAAAAAAAAAZAAkAAgAAAAAAAAAZAAQAAgAAAAAAAAAZAAMAAgAAAAAAAAAZAAIAAgAAAAAAAAAZAAEAAgAAAAAAAAAHAAQAAgAAAAAAAAAHAAMAAgAAAAAAAAAHAAIAAgAAAAAAAAAHAAEAAgAAAAAAAAAHAAgAAgAAAAAAAAAZAAgAAgAAAAAAAAA=")
 tile_set = ExtResource("4_osnue")
 rendering_quadrant_size = 32
 
@@ -59,91 +104,95 @@ text = "
 
 [center]YOU DIED[/center]"
 
-[node name="Button" parent="." node_paths=PackedStringArray("platform") instance=ExtResource("8_jky28")]
-position = Vector2(977, 127)
-platform = NodePath("../Platform2")
-
 [node name="Button2" parent="." node_paths=PackedStringArray("platform") instance=ExtResource("8_jky28")]
 position = Vector2(1008, 287)
 platform = NodePath("../Platform")
 
+[node name="Button3" parent="Button2" node_paths=PackedStringArray("platform") instance=ExtResource("8_jky28")]
+position = Vector2(-31, -160)
+platform = NodePath("../../Platform/Platform3")
+
+[node name="Button4" parent="Button2" node_paths=PackedStringArray("platform") instance=ExtResource("8_jky28")]
+platform = NodePath("../../Platform/Platform4")
+
 [node name="Platform" parent="." instance=ExtResource("7_sp1sp")]
-position = Vector2(832, 256)
+position = Vector2(832, 160)
 rotation = 1.5708
-length = 2
+move = 2
+length = 3
 direction = 4
 
-[node name="Platform2" parent="." instance=ExtResource("7_sp1sp")]
-position = Vector2(928, 65)
-rotation = 1.5708
+[node name="Platform3" parent="Platform" instance=ExtResource("7_sp1sp")]
+position = Vector2(-95.0009, -256)
 move = 3
 length = 3
 direction = 4
 
-[node name="Platform3" parent="." instance=ExtResource("7_sp1sp")]
-position = Vector2(1088, 65)
-rotation = 1.5708
-move = 3
+[node name="Platform4" parent="Platform" instance=ExtResource("7_sp1sp")]
+position = Vector2(0.0020752, 576)
+move = 2
 length = 3
 direction = 4
 
-[node name="Button3" parent="." node_paths=PackedStringArray("platform") instance=ExtResource("8_jky28")]
-position = Vector2(977, 127)
-platform = NodePath("../Platform3")
+[node name="Kolec" parent="." instance=ExtResource("10_y7f46")]
+position = Vector2(272, 304)
 
-[node name="Platform4" parent="." instance=ExtResource("7_sp1sp")]
-position = Vector2(256, 256)
-rotation = 1.5708
-length = 2
-direction = 4
+[node name="Kolec2" parent="Kolec" instance=ExtResource("10_y7f46")]
+position = Vector2(32, 0)
 
-[node name="Button4" parent="." node_paths=PackedStringArray("platform") instance=ExtResource("8_jky28")]
-position = Vector2(1008, 287)
-platform = NodePath("../Platform4")
+[node name="Kolec3" parent="Kolec" instance=ExtResource("10_y7f46")]
+position = Vector2(64, 0)
 
-[node name="Platform5" parent="." instance=ExtResource("7_sp1sp")]
-position = Vector2(160, 512)
-rotation = 1.5708
-move = 3
-length = 3
-direction = 4
+[node name="Kolec4" parent="Kolec" instance=ExtResource("10_y7f46")]
+position = Vector2(192, 0)
 
-[node name="Platform6" parent="." instance=ExtResource("7_sp1sp")]
-position = Vector2(288, 448)
-rotation = 1.5708
-move = 3
-length = 3
-direction = 4
+[node name="Kolec5" parent="Kolec" instance=ExtResource("10_y7f46")]
+position = Vector2(224, 0)
 
-[node name="Platform7" parent="." instance=ExtResource("7_sp1sp")]
-position = Vector2(416, 512)
-rotation = 1.5708
-move = 3
-length = 3
-direction = 4
+[node name="Kolec6" parent="Kolec" instance=ExtResource("10_y7f46")]
+position = Vector2(256, 0)
 
-[node name="Platform8" parent="." instance=ExtResource("7_sp1sp")]
-position = Vector2(512, 448)
-rotation = 1.5708
-move = 3
-length = 3
-direction = 4
+[node name="Kolec7" parent="Kolec" instance=ExtResource("10_y7f46")]
+position = Vector2(288, 0)
 
-[node name="Button5" parent="." node_paths=PackedStringArray("platform") instance=ExtResource("8_jky28")]
-position = Vector2(48, 576)
-platform = NodePath("../Platform5")
+[node name="Kolec8" parent="Kolec" instance=ExtResource("10_y7f46")]
+position = Vector2(320, 0)
 
-[node name="Button6" parent="." node_paths=PackedStringArray("platform") instance=ExtResource("8_jky28")]
-position = Vector2(48, 576)
-platform = NodePath("../Platform6")
+[node name="Kolec12" parent="Kolec" instance=ExtResource("10_y7f46")]
+position = Vector2(-128, 320)
 
-[node name="Button7" parent="." node_paths=PackedStringArray("platform") instance=ExtResource("8_jky28")]
-position = Vector2(48, 576)
-platform = NodePath("../Platform7")
+[node name="Kolec13" parent="Kolec" instance=ExtResource("10_y7f46")]
+position = Vector2(-96, 320)
 
-[node name="Button8" parent="." node_paths=PackedStringArray("platform") instance=ExtResource("8_jky28")]
-position = Vector2(48, 576)
-platform = NodePath("../Platform8")
+[node name="Kolec14" parent="Kolec" instance=ExtResource("10_y7f46")]
+position = Vector2(-64, 320)
+
+[node name="Kolec15" parent="Kolec" instance=ExtResource("10_y7f46")]
+position = Vector2(-32, 320)
+
+[node name="Kolec16" parent="Kolec" instance=ExtResource("10_y7f46")]
+position = Vector2(0, 320)
+
+[node name="Kolec17" parent="Kolec" instance=ExtResource("10_y7f46")]
+position = Vector2(32, 320)
+
+[node name="Kolec18" parent="Kolec" instance=ExtResource("10_y7f46")]
+position = Vector2(64, 320)
+
+[node name="Kolec19" parent="Kolec" instance=ExtResource("10_y7f46")]
+position = Vector2(96, 320)
+
+[node name="Kolec20" parent="Kolec" instance=ExtResource("10_y7f46")]
+position = Vector2(128, 320)
+
+[node name="Kolec9" parent="Kolec" instance=ExtResource("10_y7f46")]
+position = Vector2(448, 0)
+
+[node name="Kolec10" parent="Kolec" instance=ExtResource("10_y7f46")]
+position = Vector2(480, 0)
+
+[node name="Kolec11" parent="Kolec" instance=ExtResource("10_y7f46")]
+position = Vector2(512, 0)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = ExtResource("9_xeibj")
