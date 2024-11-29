@@ -5,11 +5,6 @@ var current_position = 0
 var idz = false
 var is_sad = false
 
-func _process(delta: float) -> void:
-	if global_position.y >= 648-32:
-		hide()
-	else:
-		show()
 
 func _physics_process(delta):
 	if idz:
